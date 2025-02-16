@@ -6,7 +6,7 @@ import WelcomeMessage from './components/WelcomeMessage'
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
-
+import UserProfile from './components/UserProfile';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <Header />
       <MainContent />
       <Footer />
-
+<UserProfile name = 'Alice' age = {25} bio ='loves hiking and photography' />
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -29,7 +29,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button ok={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
@@ -44,3 +44,4 @@ function App() {
 }
 
 export default App
+nClic
