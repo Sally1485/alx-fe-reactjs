@@ -9,7 +9,8 @@ import RecipeDetails from './components/RecipeDetails';
 import EditRecipeForm from './components/EditRecipeForm';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import SearchBar from './components/SearchBar';
-
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 function App() {
   const [count, setCount] = useState(0);
   const recipes = useRecipeStore((state) => state.recipes);
@@ -26,6 +27,8 @@ function App() {
         <Route path="/edit/:recipeId" element={<EditRecipeForm />} />
         <Route path="/recipes" element={<RecipeList />} />
         <Route path="/recipe/:id" element={<RecipeDetails />} />
+        <Route path="/recipe" element={<FavoritesList />} />
+        <Route path="/recipe" element={<RecommendationsList />} />
         <Route path="*" element={<h2>404 - Page Not Found</h2>} />
       </Routes>
          <SearchBar />
