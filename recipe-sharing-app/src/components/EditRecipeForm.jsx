@@ -1,16 +1,68 @@
+import { useState } from 'react';
 import { useRecipeStore } from './components/recipeStore';
 
-  const EditRecipeForm = ({ recipeId }) => {
-    const recipe = useRecipeStore(state =>
-      state.recipes.find(recipe => recipe.id === recipeId)
-    );
+const EditRecipeForm = ({ recipeId }) => {
+  const { recipes, updateRecipe, deleteRecipe } = useRecipeStore(state => ({
+    recipes: state.recipes,
+    updateRecipe: state.updateRecipe,
+    deleteRecipe: state.deleteRecipe
+  }));
 
-    return (
-      <div>
-        <h1>{recipe.title}</h1>
-        <p>{recipe.description}</p>
-        {/* Render EditRecipeForm and DeleteRecipeButton here */}
-      </div>
-    );
+  const recipe = recipes.find(recipe => recipe.id === recipeId);
+
+  // Handle case when recipe is not found
+  if (!recipe) {
+    return <p>Recipe not found or still loading...</p>;
+  }
+
+  // Local state for form input
+  const [title, setTitle] = useState(recipe.title);
+  const [description, setDescription] = useState(recipe.description);
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateRecipe(recipeId, { title, description });
+    alert("Recipe updated successfully!");
   };
-  export default EditRecipeForm;
+
+  // Handle delete
+  const handleDelete = () => {
+    deleteRecipe(recipeId);
+    alert("Recipe deleted successfully!");
+  };
+
+  return (
+    <div style={{ padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
+      <h2>Edit Recipe</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Title:
+          <input 
+            type="text" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Description:
+          <textarea 
+            value={description} 
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
+        <br />
+        <button type="submit">Save Changes</button>
+      </form>
+      <button 
+        style={{ marginTop: '10px', backgroundColor: 'red', color: 'white' }} 
+        onClick={handleDelete}
+      >
+        Delete Recipe
+      </button>
+    </div>
+  );
+};
+
+export default EditRecipeForm;
