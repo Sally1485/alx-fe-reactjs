@@ -20,16 +20,19 @@ const EditRecipeForm = ({ recipeId }) => {
   const [description, setDescription] = useState(recipe.description);
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevents page refresh
     updateRecipe(recipeId, { title, description });
     alert("Recipe updated successfully!");
   };
 
   // Handle delete
-  const handleDelete = () => {
-    deleteRecipe(recipeId);
-    alert("Recipe deleted successfully!");
+  const handleDelete = (event) => {
+    event.preventDefault(); // Prevents any default action
+    if (window.confirm("Are you sure you want to delete this recipe?")) {
+      deleteRecipe(recipeId);
+      alert("Recipe deleted successfully!");
+    }
   };
 
   return (
