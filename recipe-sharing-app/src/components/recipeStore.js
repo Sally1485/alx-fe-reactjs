@@ -1,4 +1,5 @@
 import create from 'zustand'
+import RecommendationsList from './RecommendationsList';
 
 const useRecipeStore = create(set => ({
   recipes: [],
@@ -13,6 +14,7 @@ const useRecipeStore = create(set => ({
   filterRecipes: () => set(state => ({
     filteredRecipes: state.recipes.filter(recipe =>
       recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      setRecommendationsList: (id) =>set((state) => ({ recipes: state.recipes.filter((recipe) => recipe.id !==id)})),
   )}))
 }));
  export default useRecipeStore;
