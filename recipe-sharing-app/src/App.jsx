@@ -5,6 +5,9 @@ import './App.css'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeList from './components/RecipeList'
 import useRecipeStore from './components/recipeStore'
+import RecipeDetails from './components/RecipeDetails'
+import EditRecipeForm from './components/EditRecipeForm'
+import E
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,6 +16,8 @@ const recipes = useRecipeStore((state) => state.recipes);
     <>
     <AddRecipeForm />
     <RecipeList />
+    <RecipeDetails />
+    <EditRecipeForm />
     
       <div>
       <h2>Recipes</h2>
