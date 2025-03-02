@@ -1,8 +1,14 @@
 import { useRecipeStore } from './components/recipeStore';
 
   const RecipeList = () => {
-    const recipes = useRecipeStore(state => state.recipes);
+    const {recipes, filteredRecipes} = useRecipeStore(state => state.recipes);
 
+    const SearchChange = (e) => {
+      const newSearchTerm = e.target.value;
+      setSearchTerm(newSearchTerm);
+      filterRecipes(newSearchTerm);
+    };
+  
     return (
       <div>
         {recipes.map(recipe => (
@@ -11,6 +17,15 @@ import { useRecipeStore } from './components/recipeStore';
             <p>{recipe.description}</p>
           </div>
         ))}
+         <ul>
+        {filteredRecipes.length > 0 ? (
+          filteredRecipes.map((recipe) => (
+            <li key={recipe.id}>{recipe.title}</li>
+          ))
+        ) : (
+          <p>No matching recipes found.</p>
+        )}
+      </ul>
       </div>
     );
   };

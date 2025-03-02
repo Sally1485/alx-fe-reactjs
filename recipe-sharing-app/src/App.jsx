@@ -8,6 +8,7 @@ import useRecipeStore from './components/recipeStore';
 import RecipeDetails from './components/RecipeDetails';
 import EditRecipeForm from './components/EditRecipeForm';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,7 +28,7 @@ function App() {
         <Route path="/recipe/:id" element={<RecipeDetails />} />
         <Route path="*" element={<h2>404 - Page Not Found</h2>} />
       </Routes>
-
+         <SearchBar />
       <div>
         <h2>Recipes</h2>
         <ul>
