@@ -18,6 +18,22 @@ const [username, email, password] = formData;
         console.log(formData);
     };
 
+    const validateForm = () => {
+        let tempErrors = {};
+        if (!username) {
+          tempErrors.username = 'Username is required';
+        }
+        if (!email) {
+          tempErrors.email = 'Email is required';
+        }
+        if (!password) {
+          tempErrors.password = 'Password is required';
+        }
+        setErrors(tempErrors);
+        // If no keys in tempErrors, the form is valid
+        return Object.keys(tempErrors).length === 0;
+      };
+
     return (
         <form onSubmit={handleSubmit}>
             <input
