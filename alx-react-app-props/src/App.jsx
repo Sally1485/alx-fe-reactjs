@@ -31,12 +31,13 @@ function App() {
       <ProfilePage />
        <UserInfo />
        <UserDetails />
+       <UserProfile name="Alice" age={25} bio="Loves hiking and photography" />
     </UserContext.Provider>
       <WelcomeMessage />
       <Header />
       <MainContent />
       <Footer />
-      <UserProfile name="Alice" age={25} bio="Loves hiking and photography" />
+     
       <Counter />
          <ProfilePage userData={userData} />;
          <UserInfo />
