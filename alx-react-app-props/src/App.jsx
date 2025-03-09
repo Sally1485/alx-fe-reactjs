@@ -10,7 +10,7 @@ import UserProfile from './components/UserProfile';
 import Counter from './components/Counter';
 import ProfilePage from './components/ProfilePage'
 import UserInfo from './UserInfo'
-import UserContext from './Context/UserContext'
+import UserContext from './components/UserContext'
 import UserInfo from './components/UserInfo'
 import UserDetails from './components/UserDetails'
 
