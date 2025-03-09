@@ -22,7 +22,7 @@ const RegistrationForm = () => {
             <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={formData.username}
                 onChange={handleChange}
             />
             <input
