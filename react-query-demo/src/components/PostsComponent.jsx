@@ -5,7 +5,14 @@ const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 return res.json();
 };
  const postsComponent =() =>{
-    const {data: posts, error: isError, isLoading, refetch, } =useQuery('fetchPosts', fetchPosts)
+    const {data: posts, error: isError, isLoading, refetch, } =useQuery('fetchPosts', fetchPosts,
+        {
+            cacheTime: 300000,         // 5 minutes
+            staleTime: 60000,          // 1 minute
+            refetchOnWindowFocus: true,
+            keepPreviousData: true
+          }
+    )
     // Handle loading state
     if (isLoading) return <div>Loading...</div>;
     // Handle error state
