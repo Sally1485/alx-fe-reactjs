@@ -24,4 +24,4 @@ function RecommendationsList() {
 }
 }
 
-export default RecommendationsList;
+export default RecommendationsList0;

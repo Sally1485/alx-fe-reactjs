@@ -10,7 +10,9 @@ import UserProfile from './components/UserProfile';
 import Counter from './components/Counter';
 import ProfilePage from './components/ProfilePage'
 import UserInfo from './UserInfo'
-import <User
+import UserContext from './Context/UserContext'
+import UserInfo from './components/UserInfo'
+import UserDetails from './components/UserDetails'
 
 
 
@@ -23,7 +25,13 @@ function App() {
    <ProfilePage userData={userData} />;
   return (
     <>
+   
       <div>
+      <UserContext.Provider value={userData}>
+      <ProfilePage />
+       <UserInfo />
+       <UserDetails />
+    </UserContext.Provider>
       <WelcomeMessage />
       <Header />
       <MainContent />
