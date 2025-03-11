@@ -16,7 +16,7 @@ function App() {
         <Route path='/profile' element={<ProtectedRoute component={Profile} isAuthenticated={isAuthenticated}/>} />
         <Route path = '/profileDetails' element={<ProtectedRoute component={ProfileDetails} isAuthenticated={isAuthenticated} />} />
         <Route path= '/profileSettings' element={<ProtectedRoute component={ProfileSettings} isAuthenticated={isAuthenticated} />} />
-        <Route path= '/blog/id:' element={<ProtectedRoute component={BlogPosts} isAuthenticated={isAuthenticated} />} />
+        <Route path= '/blog/:id' element={<ProtectedRoute component={BlogPosts} isAuthenticated={isAuthenticated} />} />
       </Routes>
     </Router>
 
