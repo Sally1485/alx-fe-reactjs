@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import {BrowserRouter as Router, Routes, Route, Link}  from  'react-router-dom';
 import BlogPosts from './BlogPosts';
+import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   
   return (
