@@ -36,7 +36,7 @@ function AddRecipeForm() {
 
     })
   return (
-    <div className='max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg'>
+    <div form onSubmit={handleSubmit} className='max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg' >
         <textarea name="recipe Title" id="recipeTitle" className="text-xl font-semibold mb-4"></textarea>
         <textarea name="ingredients" id="ingredients" className="text-xl font-semibold mb-4"></textarea>
         <textarea name="preparations" id="prepations" className="text-xl font-semibold mb-4"></textarea>
