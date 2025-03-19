@@ -11,9 +11,9 @@ function AddRecipeForm() {
   const validateForm = () => {
     let newErrors = {};
 
-    if (!formData.recipeTitle.trim()) newErrors.recipeTitle = "Name is required.";
+    if (!formData.title.trim()) newErrors.title = "Name is required.";
     if (!formData.ingredients.trim()) newErrors.ingredients = "Ingredients is required.";
-    if (!formData.preparartions.trim()) newErrors.password = "Preparations is required.";
+    if (!formData.steps.trim()) newErrors.steps = "Preparations is required.";
 
     setErrors(newErrors);
 
@@ -21,7 +21,7 @@ function AddRecipeForm() {
   }
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.recipeTitle]: e.target.value });
+    setFormData({ ...formData, [e.target.title]: e.target.value });
   }
   
 
@@ -37,9 +37,9 @@ function AddRecipeForm() {
     })
   return (
     <div form onSubmit={handleSubmit} className='max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg' >
-        <textarea name="recipe Title" id="recipeTitle" className="text-xl font-semibold mb-4">Title:</textarea>
-        <textarea name="ingredients" id="ingredients" className="text-xl font-semibold mb-4">Ingredients:</textarea>
-        <textarea name="preparations" id="prepations" className="text-xl font-semibold mb-4">Steps:</textarea>
+        <textarea name="title" id="title" className="text-xl font-semibold mb-4">title:</textarea>
+        <textarea name="ingredients" id="ingredients" className="text-xl font-semibold mb-4">ingredients:</textarea>
+        <textarea name="steps" id="steps" className="text-xl font-semibold mb-4">steps:</textarea>
         <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'>submit</button>
     </div>
   )
