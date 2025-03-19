@@ -16,7 +16,7 @@ function RecipeDetail() {
         return<div>Loading...</div>
     }
   return (
-    <div className='text-center text-white'>
+    <div className='text-center text-white shadow sm:shadow-sm md:shadow-lg font-bold'>
         <h1>{recipe.title}</h1>
         <img src="{recipe.image}" alt="{recipe.title}" />
         <h2>Ingredients</h2>
