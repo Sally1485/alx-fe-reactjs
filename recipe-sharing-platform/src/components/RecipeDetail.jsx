@@ -27,7 +27,8 @@ function RecipeDetail() {
         </ul>
         <h2>Instuctions</h2>
         <p className='text-black sm:p-4 md:p-8 max-w-xs sm:max-w-md md:max-w-lg '>{recipe.instructions}</p>
-    </div>
+        <Link to="/HomePage">HomePage</Link>
+ </div>
   );
 }
 
