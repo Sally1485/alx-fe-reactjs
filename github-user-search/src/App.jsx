@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Form from './components/form'
-import Api from './services/Api'
+
+import Search from './components/Search'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -13,7 +14,8 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Form />} />
-        <Route path='/api' element={<Api />} />
+       
+        <Route path='/search' element={<Search />} />
       </Routes>
     </Router>
       <div>
