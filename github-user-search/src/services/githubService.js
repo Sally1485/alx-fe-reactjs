@@ -6,7 +6,7 @@ const BASE_URL = "https://api.github.com/search/users?q={query}";
  * Fetch user data by username
  * @param {string} username - The GitHub username
  */
-export const fetchUser = async (username) => {
+export const fetchUserData = async (username) => {
   try {
     const response = await axios.get(`${BASE_URL}/users/${username}`);
     return response.data;
