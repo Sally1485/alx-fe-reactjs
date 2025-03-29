@@ -19,7 +19,7 @@ function fetchUserData = async( username) => {
       })
       .catch((error) => {
         console.error("Looks like we cant find the user:", error);
-        setError(error.message);
+        setError("Looks like we cant find the user:",error);
         setUser(null);
       });
   }, [username]);
@@ -38,6 +38,8 @@ function fetchUserData = async( username) => {
             width="100"
             className="rounded-full mt-2"
           />
+          <h2 className="text-xl font-bold">{user.name || "No Name"}</h2>
+          <p className="text-gray-600">@{user.login}</p>
           <p>
             <a
               href={user.html_url}
