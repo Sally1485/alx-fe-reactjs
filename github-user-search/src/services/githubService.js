@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-function FetchUserData({ username }) {
+function FetchUserData = async( username) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!username) return; // Prevent fetching if no username is provided
 
-    fetch(`https://api.github.com/users/${username}`)
+    await axios.get(`https://api.github.com/users/${username}`)
       .then((res) => {
         if (!res.ok) throw new Error("Looks like we cant find the user");
         return res.json();
