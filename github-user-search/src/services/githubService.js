@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function FetchUserData = async( username) => {
+function fetchUserData = async( username) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
@@ -56,4 +56,4 @@ function FetchUserData = async( username) => {
   );
 }
 
-export default FetchUserData;
+export default fetchUserData;

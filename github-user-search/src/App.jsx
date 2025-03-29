@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Form from './components/form'
-
+import fetchUserData from './services/githubService'
 import Search from './components/Search'
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Form />} />
-       
+       <Route path='/fetchUserData' element={<fetchUserData/>} />
         <Route path='/search' element={<Search />} />
       </Routes>
     </Router>
