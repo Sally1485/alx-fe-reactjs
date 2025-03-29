@@ -24,7 +24,7 @@ function Search() {
       const res = await axios.get(`https://api.github.com/users/${formData.username}`);
       setUser(res.data);
     } catch (err) {
-      setError("Looks like we can't find the user.");
+      setError("Looks like we cant find the user");
     } finally {
       setLoading(false); // Stop loading
     }
