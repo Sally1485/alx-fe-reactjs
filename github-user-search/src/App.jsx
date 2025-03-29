@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Form from './components/form'
 import fetchUserData from './services/githubService'
 import Search from './components/Search'
+import './index.css';
 function App() {
   const [count, setCount] = useState(0)
 
