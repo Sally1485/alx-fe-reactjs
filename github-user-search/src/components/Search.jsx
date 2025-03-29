@@ -9,7 +9,7 @@ link: ""
     });
     
 const handleChange =(e) => {
-    setFormData({...formData, [e.target.name]: e.target.vale});
+    setFormData({...formData, [e.target.name]: e.target.value});
 };
    
 
