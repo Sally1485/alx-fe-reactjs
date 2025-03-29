@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.github.com";
+const BASE_URL = "https://api.github.com/search/users?q={query}";
 
 /**
  * Fetch user data by username
@@ -26,7 +26,7 @@ export const searchUsers = async (filters) => {
 
     if (filters.username) query.push(`${filters.username} in:login`);
     if (filters.location) query.push(`location:${filters.location}`);
-    if (filters.repos) query.push(`repos:>${filters.repos}`);
+    if (filters.repos) query.push(`repos:>${filters.minRepos}`);
 
     const queryString = query.join("+");
     const response = await axios.get(`${BASE_URL}/search/users?q=${queryString}`);
