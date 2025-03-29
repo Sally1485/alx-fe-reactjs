@@ -8,6 +8,7 @@ function Search() {
 
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // Track loading state
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,14 +16,17 @@ function Search() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
+    setError(null); // Reset error state
+    setUser(null); // Reset previous user data
 
     try {
       const res = await axios.get(`https://api.github.com/users/${formData.username}`);
       setUser(res.data);
-      setError(null);
     } catch (err) {
       setError("Looks like we can't find the user.");
-      setUser(null);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -45,9 +49,14 @@ function Search() {
         </button>
       </form>
 
-      {/* Display User Data */}
+      {/* Display Loading Message */}
+      {loading && <p className="text-gray-600">Loading...</p>}
+
+      {/* Display Error Message */}
       {error && <p className="text-red-500">{error}</p>}
-      {user && (
+
+      {/* Display User Data */}
+      {user && !loading && (
         <div className="mt-4">
           <img src={user.avatar_url} alt="Avatar" className="rounded-full w-16 h-16 mb-2" />
           <h2 className="text-xl font-bold">{user.name || "No Name"}</h2>
